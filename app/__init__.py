@@ -1,7 +1,8 @@
-import pyrebase
+# import pyrebase
 from flask import *
 app=Flask(__name__)
 from app import routes
+app.secret_key="N5XW633INBUCCQTJM5JWKY3SMV2ESQLNKN2XEZI"
 # config={
 #     apiKey: "AIzaSyBtaWPLnzjuH-Xuo-U293wGIHGMLZqq4xM",
 #     authDomain: "test-kk-c1456.firebaseapp.com",

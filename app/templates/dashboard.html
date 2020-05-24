@@ -1,0 +1,125 @@
+<html>
+  <head>
+    <title></title>
+    <style></style>
+    <link rel="shortcut icon" href="#" />
+    <link rel="stylesheet" type="text/css" href='{{ url_for("static", filename="css/dashboard.css")}}'>
+
+  </head>
+<body> 
+    
+
+    <div class="container">
+        <!-- <div class="calendar light">
+          <div class="calendar_header">
+            <h1 class="header_title">Welcome Back</h1>
+            <p class="header_copy"> Calendar Plan</p>
+          </div>
+          <div class="calendar_plan">
+            <div class="cl_plan">
+              <div class="cl_title">Today</div>
+              <div class="cl_copy">22nd April 2018</div>
+              <div class="cl_add">
+                <i class="fas fa-plus"></i>
+              </div>
+            </div>
+          </div>
+          <div class="calendar_events">
+            <p class="ce_title">Upcoming Events</p>
+            <div class="event_item">
+              <div class="ei_Dot dot_active"></div>
+              <div class="ei_Title">10:30 am</div>
+              <div class="ei_Copy">Monday briefing with the team</div>
+            </div>
+            <div class="event_item">
+              <div class="ei_Dot"></div>
+              <div class="ei_Title">12:00 pm</div>
+              <div class="ei_Copy">Lunch for with the besties</div>
+            </div>
+            <div class="event_item">
+              <div class="ei_Dot"></div>
+              <div class="ei_Title">13:00 pm</div>
+              <div class="ei_Copy">Meet with the client for final design <br> @foofinder</div>
+            </div>
+            <div class="event_item">
+              <div class="ei_Dot"></div>
+              <div class="ei_Title">14:30 am</div>
+              <div class="ei_Copy">Plan event night to inspire students</div>
+            </div>
+            <div class="event_item">
+              <div class="ei_Dot"></div>
+              <div class="ei_Title">15:30 am</div>
+              <div class="ei_Copy">Add some more events to the calendar</div>
+            </div>
+          </div>
+        </div>
+       -->
+        <div class="calendar dark">
+          <div class="calendar_header">
+            <h1 class="header_title">Welcome Back </h1>
+            <p class="header_copy"> Calendar Plan</p>
+          </div>
+          <div clas s="calendar_plan">
+            <div class="cl_plan">
+              <div class="cl_title">Today</div>
+              <div class="cl_copy">{{date}}</div>   
+              
+            <div class="cl_add" id="add">    
+                  <!-- <a  href="{{ url_for('formMakeAvil') }}"></a> -->
+                <i class="fas fa-plus" >a</i>
+                <a  href="{{ url_for('bookGetAvil') }}">dd</a>
+                </div>
+                <div class="cl_add" id="info">    
+                    <!-- <a  href="{{ url_for('formGetAvil') }}"></a> -->
+                  <i class="fas fa-plus"> G</i>
+                  <a  href="{{ url_for('bookGetAvil') }}">et</a>
+                  </div>
+                  <div class="cl_add" id="book">
+                    <i class="fas fa-plus">B</i>
+                    <a  href="{{ url_for('bookGetAvil') }}">ook</a>
+                    </div>
+            </div>
+          </div>
+          <div class="calendar_events">
+              <p class="ce_title">Upcoming Events</p>
+                {% for data in slots %}
+                <div class="event_item">
+                <div class="ei_Dot dot_active"></div>
+                <div class="ei_Title">{{ data.slot }}</div>
+                    {% if data.slot==data.name %}
+                    <div class="ei_Copy">Free</div>
+                    {% else %}
+                    <div class="ei_Copy">Booked By:{{data.name}}</div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+          </div>
+        </div>
+      
+      </div>
+
+  
+<!-- <script src="{{ url_for('static',filename='js/dashboard.js') }}"></script> -->
+  <script>
+    //     $('#add').click(function(){
+    //         // alert("clicked +")
+    //     $.ajax("https://cal-api-backend.herokuapp.com//formMakeAvil", {
+    //         type: 'GET'  // http method
+    //     });
+    // });
+		// $('#info').click(function(){
+    //     // alert("clicked G")
+    //     $.ajax("http://127.0.0.1:5000/formGetAvil", {
+    //         type: 'GET'  // http method
+    //     });
+    // });
+		// $('#book').click(function(){
+    //     // alert("clicked B")
+    //     $.ajax("http://127.0.0.1:5000/bookGetAvil", {
+    //         type: 'GET'  // http method
+    //     });
+    // });
+    // $("#book").css( "border", "3px solid red" );
+  </script>
+</body>
+</html>
