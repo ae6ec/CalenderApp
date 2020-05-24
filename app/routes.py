@@ -236,14 +236,14 @@ def api(service):
                 return {"success":1,"msg":"Password reset email Sent"}
 
             elif(service=="makeSlotAvail"):
-                # name=data['name']
+                name=data['name']
                 day=data['day']
                 email=data['email']
                 password=data['pass']
                 auth=firebase.auth()
                 user=auth.sign_in_with_email_and_password(email,password)
                 db=firebase.database()
-                db_data={email:{day:{}}}
+                db_data={name:{day:{}}}
                 for i in data['slots']:
                     db_data[name][day][i]=str(i)
                 # print(db_data)
@@ -268,14 +268,14 @@ def api(service):
             elif(service=="bookSlot"):
                 slotName=data['slotName']
                 slot=data['slot']
-                # name=data['name']
+                name=data['name']
                 day=data['day']
                 email=data['email']
                 password=data['pass']
                 auth=firebase.auth()
                 user=auth.sign_in_with_email_and_password(email,password)
                 db=firebase.database()
-                db.child("Calender").child(slotName).child(day).update({slot:email})
+                db.child("Calender").child(slotName).child(day).update({slot:name})
                 return {"success":1,"msg":"Slot Booking Successful"}
         except:
             return {"success":0,"msg":"Format or Data incorrect"}
