@@ -202,7 +202,7 @@ def dashboard():
         return render_template('500.html')  
 
 
-# THE BELOW ARE FOR RESTFUL API
+# THE BELOW ARE FOR headless API
 
 
 
